@@ -19,7 +19,7 @@ const works=[
 {t:'自述喜劇作為創傷療育的社會實踐',c:'study',cat:'專題研究',img:'p_47a4f0393a.jpg',pdf:'自述喜劇作為創傷療育的社會實踐.pdf',d:'從幽默、敘事與社會實踐切入，討論人如何重新取得故事的敘述位置，並整理相關理論與案例。',tags:['文化研究','敘事','社會實踐']},
 {t:'做父母、做階級',c:'reading',cat:'文本導讀',img:'p_d074b509f7.jpg',pdf:'做父母、做階級—彭筱媃.pdf',d:'從親職與教養實作理解階級如何被製作、區辨與再生產，將家庭日常轉譯成可討論的社會學問題。',tags:['階級','家庭','親職']},
 {t:'超越意識？社會階級的心理觀景',c:'reading',cat:'文本導讀',img:'p_c67a36622d.jpg',pdf:'超越意識 社會階級的心理觀景.pdf',d:'把階級研究帶進情感與心理層次，整理階級感受、日常羞辱與不平等生成之間的關係。',tags:['階級','情感','教育']},
-{t:'培力還是侷限？',c:'reading',cat:'期刊導讀',img:'p_04d52d88d4.jpg',pdf:'培力還是侷限.pdf',d:'從兒少安置機構的場域、慣習與離院後階級處境，整理一篇質性實證研究的問題、理論、方法與發現。',tags:['Bourdieu','階級','質性研究']},
+{t:'培力還是侷限？',c:'reading',cat:'期刊導讀',img:'p_04d52d88d4.jpg',pdf:'https://drive.google.com/file/d/10aXAfvoM7fLVlNK8xCx18Twk-NG_rYym/preview',d:'從兒少安置機構的場域、慣習與離院後階級處境，整理一篇質性實證研究的問題、理論、方法與發現。',tags:['Bourdieu','階級','質性研究']},
 {t:'證照到底是什麼？對謀職或加薪有利嗎？',c:'reading',cat:'文本導讀',img:'p_0f25e8002b.jpg',pdf:'證照到底是甚麼.pdf',d:'以「當人證照」互動開場，再進入證照定義、統計與就業效果的文本討論，把閱讀轉成可參與的課堂敘事。',tags:['勞動','教育','互動設計']},
 {t:'所有的婚姻制度，都是歷史的偶然',c:'reading',cat:'文本導讀',img:'p_7ee3cb21ab.jpg',pdf:'所有的婚姻制度，都是歷史的偶然.pdf',d:'從不同文化與歷史情境理解婚姻制度，並以互動方式挑戰「婚姻只有一種自然形式」的直覺。',tags:['家庭','婚姻','性別']},
 {t:'以自然發展及社會效率為目的',c:'reading',cat:'文本導讀',img:'p_b5f102dfa4.jpg',pdf:'以自然發展及社會效率為目的.pdf',d:'杜威教育哲學章節導讀，整理自然發展、社會效率、文化與教育目的之間的概念關係。',tags:['杜威','教育哲學','概念轉譯']},
@@ -29,5 +29,19 @@ const works=[
 ];
 const grid=document.getElementById('projects');function render(f='all'){grid.innerHTML='';works.filter(w=>f==='all'||w.c===f).forEach(w=>{const el=document.createElement('article');el.className='project';el.innerHTML=`<div class="cover"><img src="assets/thumbs/${encodeURIComponent(w.img)}" alt="${w.t} 封面" loading="lazy" decoding="async"><span class="badge">${w.cat}</span></div><div class="body"><div class="meta">Presentation Work</div><h3>${w.t}</h3><p>${w.d}</p><div class="tags">${w.tags.map(x=>`<span class="tag">${x}</span>`).join('')}</div></div>`;el.onclick=()=>openWork(w);grid.appendChild(el)})}render();
 document.querySelectorAll('.filter').forEach(b=>b.onclick=()=>{document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));b.classList.add('active');render(b.dataset.filter)});
-const modal=document.getElementById('modal'),viewer=document.getElementById('viewer'),title=document.getElementById('modalTitle'),openPdf=document.getElementById('openPdf');function openWork(w){const u='assets/pdfs/'+encodeURIComponent(w.pdf);title.textContent=w.t;viewer.src=u+'#view=FitH';openPdf.href=u;modal.classList.add('open');document.body.style.overflow='hidden'}function close(){modal.classList.remove('open');viewer.src='';document.body.style.overflow=''}document.getElementById('close').onclick=close;modal.onclick=e=>{if(e.target===modal)close()};document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+const modal=document.getElementById('modal'),viewer=document.getElementById('viewer'),title=document.getElementById('modalTitle'),openPdf=document.getElementById('openPdf');function openWork(w){
+  const isExternal = w.pdf.startsWith('http');
+  const u = isExternal
+    ? w.pdf
+    : 'assets/pdfs/' + encodeURIComponent(w.pdf);
+
+  title.textContent = w.t;
+  viewer.src = isExternal ? u : u + '#view=FitH';
+  openPdf.href = isExternal
+    ? u.replace('/preview', '/view')
+    : u;
+
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}function close(){modal.classList.remove('open');viewer.src='';document.body.style.overflow=''}document.getElementById('close').onclick=close;modal.onclick=e=>{if(e.target===modal)close()};document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
 </script></body></html>
