@@ -5,7 +5,7 @@
 </style></head><body><div class="wrap">
 <nav class="nav"><div class="brand">SERAPHIM / PORTFOLIO</div><div class="links"><a href="#work">WORK</a><a href="#approach">APPROACH</a><a href="#about">ABOUT</a></div></nav>
 <header class="hero"><div><div class="eyebrow">Presentation Portfolio · Selected Works</div><h1>Ideas,<br>made visible.</h1><div class="lead">從文本導讀、社會設計到社會行動，記錄我如何把抽象概念拆成問題、把研究轉成敘事，再讓一個議題真正被看見。</div></div><div class="note">關於閱讀、提問與實踐的學習軌跡。<br><br>Reading · Sociology · Social Design · Social Action · Visual Translation</div></header>
-<section class="section" id="work"><div class="head"><div><div class="eyebrow">Selected work</div><h2>歷屆簡報作品</h2></div><div class="filters"><button class="filter active" data-filter="all">全部</button><button class="filter" data-filter="reading">文本／期刊導讀</button><button class="filter" data-filter="study">專題研究</button><button class="filter" data-filter="design">社會設計</button><button class="filter" data-filter="action">社會行動</button></div></div>
+<section class="section" id="work"><div class="head"><div><div class="eyebrow">Selected work</div><h2>歷屆簡報作品</h2></div><div class="filters"><button class="filter active" data-filter="all">全部</button><button class="filter" data-filter="reading">文本／期刊導讀</button><button class="filter" data-filter="study">專題研究</button><button class="filter" data-filter="design">社會設計</button><button class="filter" data-filter="action">社會行動</button><button class="filter" data-filter="cross">跨域學習</button></div></div>
 <div class="grid" id="projects"></div></section>
 <section class="section" id="approach"><div class="head"><div><div class="eyebrow">What these works show</div><h2>我如何做一份簡報</h2></div></div><div class="skills"><div class="skill"><b>01 問題化</b><span>從「這是什麼」走向「為什麼值得被問」。</span></div><div class="skill"><b>02 文本理解</b><span>辨識作者論點、概念與論證關係。</span></div><div class="skill"><b>03 論證拆解</b><span>把複雜爭點整理成可追蹤的邏輯。</span></div><div class="skill"><b>04 視覺轉譯</b><span>用圖像、對照與層次降低理解門檻。</span></div><div class="skill"><b>05 互動設計</b><span>讓觀眾先進入問題，再進入理論。</span></div><div class="skill"><b>06 行動轉化</b><span>從理解社會問題走向方案與實踐。</span></div></div></section>
 <section class="section" id="about"><div class="statement"><div class="big">「我想做的，不只是把資訊放進簡報，而是讓問題被看見。」</div><div><div class="eyebrow">About</div><h2>彭筱媃</h2><p>社會學學習者。作品關注階級、教育、家庭、倫理與社會實踐，也保留不同階段對「如何理解一個問題」的嘗試。</p><p>這份作品集依作品性質分類：文本／期刊導讀呈現閱讀與轉譯能力；專題研究呈現議題整合；社會設計與社會行動則記錄從問題辨識到實際介入的過程。</p></div></div></section>
@@ -32,9 +32,22 @@ const works=[
 {t:'變動物為競賽者',c:'reading',cat:'文本導讀',img:'p_58a811cbb3.jpg',pdf:'https://drive.google.com/file/d/1VSgnvAR1OeBQwqY7gtMgEdw2V7E6OaMb/preview'
 ,d:'從打獵、牛仔競技、賽狗與媒體切入，追問動物競技究竟是不夠人道，還是本身就不應存在。',tags:['動物倫理','競技','批判思考']},
 {t:'動物權利的效益主義式批評',c:'reading',cat:'文本導讀',img:'p_a02495a181.jpg',pdf:'https://drive.google.com/file/d/1ABvbcbZw-eHmj03pYcGaTS5SAxMkCMu6/preview',d:'整理 R. G. Frey 對 Singer 的效益主義式批評，從動物痛苦一路拆解「廢除或改革」與「零痛苦」的爭點。',tags:['效益主義','動物權利','論證分析']},
-{t:'Contractarianism and Animal Rights',c:'reading',cat:'文本導讀',img:'p_eac8dc7fa5.jpg',pdf:'https://drive.google.com/file/d/1ymbvJkubS2VGq8A6umbrtkP5VnrkZlv0/preview',d:'從契約論對理性與道德共同體的設定出發，追問動物為何被排除，以及公平思想能否重新回應動物權利。',tags:['契約論','動物權利','政治哲學']}
-];
-const grid=document.getElementById('projects');function render(f='all'){grid.innerHTML='';works.filter(w=>f==='all'||w.c===f).forEach(w=>{const el=document.createElement('article');el.className='project';el.innerHTML=`<div class="cover"><img src="assets/thumbs/${encodeURIComponent(w.img)}" alt="${w.t} 封面" loading="lazy" decoding="async"><span class="badge">${w.cat}</span></div><div class="body"><div class="meta">Presentation Work</div><h3>${w.t}</h3><p>${w.d}</p><div class="tags">${w.tags.map(x=>`<span class="tag">${x}</span>`).join('')}</div></div>`;el.onclick=()=>openWork(w);grid.appendChild(el)})}render();
+{t:'Contractarianism and Animal Rights',c:'reading',cat:'文本導讀',img:'p_eac8dc7fa5.jpg',pdf:'https://drive.google.com/file/d/1ymbvJkubS2VGq8A6umbrtkP5VnrkZlv0/preview',d:'從契約論對理性與道德共同體的設定出發，追問動物為何被排除，以及公平思想能否重新回應動物權利。',tags:['契約論','動物權利','政治哲學']},
+{
+  t:'《人生第二次機會》性平劇場',
+  c:'cross',
+  cat:'跨域學習',
+  img:'gender_theatre.jpg.png',
+  link:'https://www.taichung.gov.tw/8868/8872/9962/3098453',d:'參與臺中市政府社會局《我的性平劇場－人生第二次機會》，歷經三個月劇場訓練與共同創作，以素人演員身分登台演出。從聲音、肢體與即興表演出發，將性別、家庭與生命經驗轉化為劇場實踐。',
+  tags:['性別平等','劇場實踐','跨域學習']
+}];
+const grid=document.getElementById('projects');function render(f='all'){grid.innerHTML='';works.filter(w=>f==='all'||w.c===f).forEach(w=>{const el=document.createElement('article');el.className='project';el.innerHTML=`<div class="cover"><img src="assets/thumbs/${encodeURIComponent(w.img)}" alt="${w.t} 封面" loading="lazy" decoding="async"><span class="badge">${w.cat}</span></div><div class="body"><div class="meta">Presentation Work</div><h3>${w.t}</h3><p>${w.d}</p><div class="tags">${w.tags.map(x=>`<span class="tag">${x}</span>`).join('')}</div></div>`;el.onclick=()=>{
+  if(w.link){
+    window.open(w.link,'_blank');
+  }else{
+    openWork(w);
+  }
+};grid.appendChild(el)})}render();
 document.querySelectorAll('.filter').forEach(b=>b.onclick=()=>{document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));b.classList.add('active');render(b.dataset.filter)});
 const modal=document.getElementById('modal'),viewer=document.getElementById('viewer'),title=document.getElementById('modalTitle'),openPdf=document.getElementById('openPdf');function openWork(w){
   const isExternal = w.pdf.startsWith('http');
