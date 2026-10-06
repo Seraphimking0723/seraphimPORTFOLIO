@@ -13,19 +13,26 @@
 <div class="modal" id="modal"><div class="panel"><div class="modalbar"><strong id="modalTitle"></strong><div class="actions"><a id="openPdf" target="_blank">開啟 PDF</a><button class="close" id="close">關閉</button></div></div><iframe class="viewer" id="viewer"></iframe></div></div>
 <script>
 const works=[
-{t:'看不見的超能力',c:'design',cat:'社會設計',img:'p_f6f96cd770.jpg',pdf:'看不見的超能力.pdf',d:'從校園階級不平等出發，整理文化、社會與情感資本，並把問題轉化為可被使用的互助與資源方案。',tags:['階級','需求洞察','方案設計']},
-{t:'世代平台',c:'design',cat:'社會設計',img:'p_f55799afd0.jpg',pdf:'世代平台.pdf',d:'從高齡照顧與科技方案的缺口出發，設計青年與長者之間的陪伴、數位協助與生活支持平台。',tags:['高齡','陪伴','平台設計']},
-{t:'如果我是妳',c:'action',cat:'社會行動',img:'p_c2cfee4f3a.jpg',pdf:'如果我是妳.pdf',d:'以活動、信件與深度對話作為行動媒介，記錄關係理解如何在實際介入與反思中逐步發生。',tags:['社會行動','關係','反思']},
-{t:'自述喜劇作為創傷療育的社會實踐',c:'study',cat:'專題研究',img:'p_47a4f0393a.jpg',pdf:'自述喜劇作為創傷療育的社會實踐.pdf',d:'從幽默、敘事與社會實踐切入，討論人如何重新取得故事的敘述位置，並整理相關理論與案例。',tags:['文化研究','敘事','社會實踐']},
-{t:'做父母、做階級',c:'reading',cat:'文本導讀',img:'p_d074b509f7.jpg',pdf:'做父母、做階級—彭筱媃.pdf',d:'從親職與教養實作理解階級如何被製作、區辨與再生產，將家庭日常轉譯成可討論的社會學問題。',tags:['階級','家庭','親職']},
-{t:'超越意識？社會階級的心理觀景',c:'reading',cat:'文本導讀',img:'p_c67a36622d.jpg',pdf:'超越意識 社會階級的心理觀景.pdf',d:'把階級研究帶進情感與心理層次，整理階級感受、日常羞辱與不平等生成之間的關係。',tags:['階級','情感','教育']},
+{t:'看不見的超能力',c:'design',cat:'社會設計',img:'p_f6f96cd770.jpg',pdf:'https://drive.google.com/file/d/1S9iFQx4qLay9W1Eokd_Y1m2DBkvi0qFW/preview',d:'從校園階級不平等出發，整理文化、社會與情感資本，並把問題轉化為可被使用的互助與資源方案。',tags:['階級','需求洞察','方案設計']},
+{t:'世代平台',c:'design',cat:'社會設計',img:'p_f55799afd0.jpg',pdf:'https://drive.google.com/file/d/1wPFPtPxbV4uSypftGgtc0RMFBcQmOO51/preview'
+,d:'從高齡照顧與科技方案的缺口出發，設計青年與長者之間的陪伴、數位協助與生活支持平台。',tags:['高齡','陪伴','平台設計']},
+{t:'如果我是妳',c:'action',cat:'社會行動',img:'p_c2cfee4f3a.jpg',pdf:'https://drive.google.com/file/d/1DaXt2rgMj6odjGq6OEelWSEeyLsmAFMB/preview'
+,d:'以活動、信件與深度對話作為行動媒介，記錄關係理解如何在實際介入與反思中逐步發生。',tags:['社會行動','關係','反思']},
+{t:'自述喜劇作為創傷療育的社會實踐',c:'study',cat:'專題研究',img:'p_47a4f0393a.jpg',pdf:'https://drive.google.com/file/d/1fqKKlFQuYd8mip3urECqMcmZxtB9sj-V/preview'
+,d:'從幽默、敘事與社會實踐切入，討論人如何重新取得故事的敘述位置，並整理相關理論與案例。',tags:['文化研究','敘事','社會實踐']},
+{t:'做父母、做階級',c:'reading',cat:'文本導讀',img:'p_d074b509f7.jpg',pdf:'https://drive.google.com/file/d/1eITwXv9-SKIbqCBfMIEBTBCXj7XvHX2i/preview'
+,d:'從親職與教養實作理解階級如何被製作、區辨與再生產，將家庭日常轉譯成可討論的社會學問題。',tags:['階級','家庭','親職']},
+{t:'超越意識？社會階級的心理觀景',c:'reading',cat:'文本導讀',img:'p_c67a36622d.jpg',pdf:'https://drive.google.com/file/d/1bTjfxRg8yyBuU0WgWIB5Xw7uHZamh7ky/preview'
+,d:'把階級研究帶進情感與心理層次，整理階級感受、日常羞辱與不平等生成之間的關係。',tags:['階級','情感','教育']},
 {t:'培力還是侷限？',c:'reading',cat:'期刊導讀',img:'p_04d52d88d4.jpg',pdf:'https://drive.google.com/file/d/10aXAfvoM7fLVlNK8xCx18Twk-NG_rYym/preview',d:'從兒少安置機構的場域、慣習與離院後階級處境，整理一篇質性實證研究的問題、理論、方法與發現。',tags:['Bourdieu','階級','質性研究']},
-{t:'證照到底是什麼？對謀職或加薪有利嗎？',c:'reading',cat:'文本導讀',img:'p_0f25e8002b.jpg',pdf:'證照到底是甚麼.pdf',d:'以「當人證照」互動開場，再進入證照定義、統計與就業效果的文本討論，把閱讀轉成可參與的課堂敘事。',tags:['勞動','教育','互動設計']},
-{t:'所有的婚姻制度，都是歷史的偶然',c:'reading',cat:'文本導讀',img:'p_7ee3cb21ab.jpg',pdf:'所有的婚姻制度，都是歷史的偶然.pdf',d:'從不同文化與歷史情境理解婚姻制度，並以互動方式挑戰「婚姻只有一種自然形式」的直覺。',tags:['家庭','婚姻','性別']},
-{t:'以自然發展及社會效率為目的',c:'reading',cat:'文本導讀',img:'p_b5f102dfa4.jpg',pdf:'以自然發展及社會效率為目的.pdf',d:'杜威教育哲學章節導讀，整理自然發展、社會效率、文化與教育目的之間的概念關係。',tags:['杜威','教育哲學','概念轉譯']},
-{t:'變動物為競賽者',c:'reading',cat:'文本導讀',img:'p_58a811cbb3.jpg',pdf:'《變動物為競賽者》.pdf',d:'從打獵、牛仔競技、賽狗與媒體切入，追問動物競技究竟是不夠人道，還是本身就不應存在。',tags:['動物倫理','競技','批判思考']},
-{t:'動物權利的效益主義式批評',c:'reading',cat:'文本導讀',img:'p_a02495a181.jpg',pdf:'動物權利的效益主義式批評.pdf',d:'整理 R. G. Frey 對 Singer 的效益主義式批評，從動物痛苦一路拆解「廢除或改革」與「零痛苦」的爭點。',tags:['效益主義','動物權利','論證分析']},
-{t:'Contractarianism and Animal Rights',c:'reading',cat:'文本導讀',img:'p_eac8dc7fa5.jpg',pdf:'《Contractarianism and Animal Rights 》.pdf',d:'從契約論對理性與道德共同體的設定出發，追問動物為何被排除，以及公平思想能否重新回應動物權利。',tags:['契約論','動物權利','政治哲學']}
+{t:'證照到底是什麼？對謀職或加薪有利嗎？',c:'reading',cat:'文本導讀',img:'p_0f25e8002b.jpg',pdf:'https://drive.google.com/file/d/1nwfIZkt9-dBJqM8Lf6ppltkqZVT_uJxz/preview',d:'以「當人證照」互動開場，再進入證照定義、統計與就業效果的文本討論，把閱讀轉成可參與的課堂敘事。',tags:['勞動','教育','互動設計']},
+{t:'所有的婚姻制度，都是歷史的偶然',c:'reading',cat:'文本導讀',img:'p_7ee3cb21ab.jpg',pdf:'https://drive.google.com/file/d/1-_ZgRCFbD8pBrp6av5yV8zTdcbTg75V8/preview',d:'從不同文化與歷史情境理解婚姻制度，並以互動方式挑戰「婚姻只有一種自然形式」的直覺。',tags:['家庭','婚姻','性別']},
+{t:'以自然發展及社會效率為目的',c:'reading',cat:'文本導讀',img:'p_b5f102dfa4.jpg',pdf:'https://drive.google.com/file/d/1ujndzZJpvc5960clppBZg2kdZcDFMuKd/preview'
+,d:'杜威教育哲學章節導讀，整理自然發展、社會效率、文化與教育目的之間的概念關係。',tags:['杜威','教育哲學','概念轉譯']},
+{t:'變動物為競賽者',c:'reading',cat:'文本導讀',img:'p_58a811cbb3.jpg',pdf:'https://drive.google.com/file/d/1VSgnvAR1OeBQwqY7gtMgEdw2V7E6OaMb/preview'
+,d:'從打獵、牛仔競技、賽狗與媒體切入，追問動物競技究竟是不夠人道，還是本身就不應存在。',tags:['動物倫理','競技','批判思考']},
+{t:'動物權利的效益主義式批評',c:'reading',cat:'文本導讀',img:'p_a02495a181.jpg',pdf:'https://drive.google.com/file/d/1ABvbcbZw-eHmj03pYcGaTS5SAxMkCMu6/preview',d:'整理 R. G. Frey 對 Singer 的效益主義式批評，從動物痛苦一路拆解「廢除或改革」與「零痛苦」的爭點。',tags:['效益主義','動物權利','論證分析']},
+{t:'Contractarianism and Animal Rights',c:'reading',cat:'文本導讀',img:'p_eac8dc7fa5.jpg',pdf:'https://drive.google.com/file/d/1ymbvJkubS2VGq8A6umbrtkP5VnrkZlv0/preview',d:'從契約論對理性與道德共同體的設定出發，追問動物為何被排除，以及公平思想能否重新回應動物權利。',tags:['契約論','動物權利','政治哲學']}
 ];
 const grid=document.getElementById('projects');function render(f='all'){grid.innerHTML='';works.filter(w=>f==='all'||w.c===f).forEach(w=>{const el=document.createElement('article');el.className='project';el.innerHTML=`<div class="cover"><img src="assets/thumbs/${encodeURIComponent(w.img)}" alt="${w.t} 封面" loading="lazy" decoding="async"><span class="badge">${w.cat}</span></div><div class="body"><div class="meta">Presentation Work</div><h3>${w.t}</h3><p>${w.d}</p><div class="tags">${w.tags.map(x=>`<span class="tag">${x}</span>`).join('')}</div></div>`;el.onclick=()=>openWork(w);grid.appendChild(el)})}render();
 document.querySelectorAll('.filter').forEach(b=>b.onclick=()=>{document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));b.classList.add('active');render(b.dataset.filter)});
